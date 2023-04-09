@@ -14,6 +14,7 @@ const switchSidebar = function () {
     sidebar.classList.add('hidden');
   }
 };
+// end TODO
 
 const clearContent = function () {
   const content = document.querySelector('#content');
@@ -23,14 +24,15 @@ const clearContent = function () {
 const setTitle = function () {
   const sidebarBtns = document.querySelectorAll('.sidebarBtn');
   const content = document.querySelector('#content');
+
   sidebarBtns.forEach((sidebarBtn) => {
     sidebarBtn.addEventListener('click', function () {
-      console.log(sidebarBtn.textContent);
-      const title = document.createElement('div');
-      title = sidebarBtn.textContent;
+      clearContent();
+      let title = document.createElement('h2');
+      title.textContent = sidebarBtn.textContent;
       content.appendChild(title);
     });
   });
 };
 
-export { toggleSidebar, switchSidebar, setTitle };
+export { toggleSidebar, switchSidebar, clearContent, setTitle };
