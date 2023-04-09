@@ -5,15 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="container">
-      <div id="header"></div>
-      <div id="sidebar">
-        <div id="tasks"></div>
-        <div id="projects"></div>
+    <div class="main-container">
+      <div id="header">
+        <button class="menuBtn">
+          <i id="hamburger-menu" class="fa-solid fa-bars icon" style="color: #001c4d"></i>
+        </button>
       </div>
-      <div id="content"></div>
+      <div id="sidebar">
+        <div class="taskFilterBtns">
+          <button id="all" class="sidebarBtn sidebarBtn-active">All</button>
+          <button id="today" class="sidebarBtn">Today</button>
+          <button id="upcoming" class="sidebarBtn">Upcoming</button>
+          <button id="completed" class="sidebarBtn">Complete</button>
+        </div>
+        <div class="projectContainer">
+          <div id="projectHeader">
+            <span>Projects</span>
+            <button id="addProjectBtn">
+              <i class="fa-regular fa-square-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div id="tasks"></div>
+      </div>
+      <button id="addTaskBtn" class="floating-div">
+        <i class="fa-solid fa-plus icon"></i>
+      </button>
     </div>
   </body>
 </html>
