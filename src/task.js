@@ -19,8 +19,8 @@ class Task {
   // save project and todos to localStorage everytime a project is created.
   // function that looks for data in localStorage when app is first loaded.
 
-  addTask() {
-    localStorage;
+  static addTask() {
+    console.log('Task class: add task');
   }
 
   editTask() {}
