@@ -1,6 +1,13 @@
 import './styles/main.scss';
 import { eventListeners } from './handlers';
-import { toggleSidebar, switchSidebar, clearContent, setTitle } from './render.js';
+import {
+  toggleSidebar,
+  switchSidebar,
+  clearContent,
+  setTitle,
+  addTaskBox,
+  addTaskBtn,
+} from './render.js';
 
 // Rule of thumb: if you only ever need ONE of something (gameBoard, displayController), use a module.
 // If you need multiples of something (players!), create them with factories.
@@ -17,44 +24,44 @@ eventListeners();
 // index.js: bring it all together
 
 clearContent();
-setTitle();
+all();
 
-const loadPage = (() => {
-  // const all = document.querySelector('#all');
-  // const today = document.querySelector('#today');
-  // const upcoming = document.querySelector('#upcoming');
-  // const complete = document.querySelector('#complete');
+document.addEventListener('click', (e) => {
+  const target = e.target.innerText;
 
-  document.addEventListener('click', (e) => {
-    const target = e.target.innerText;
+  if (target == 'All') all();
+  if (target == 'Today') today();
+  if (target == 'Upcoming') upcoming();
+  if (target == 'Complete') complete();
+});
 
-    if (target == 'All') all();
-    if (target == 'Today') today();
-    if (target == 'Upcoming') upcoming();
-    if (target == 'Complete') complete();
-  });
+function all() {
+  console.log('load all');
+  setTitle();
+  addTaskBtn();
+  // loadAll();
+}
 
-  function all() {
-    console.log('load all');
-    setTitle();
-    // loadAll();
-  }
+function today() {
+  console.log('load today');
+  setTitle();
+  addTaskBtn();
 
-  function today() {
-    console.log('load today');
-    setTitle();
-    // loadToday();
-  }
+  // loadToday();
+}
 
-  function upcoming() {
-    console.log('load upcoming');
-    setTitle();
-    // loadUpcoming()
-  }
+function upcoming() {
+  console.log('load upcoming');
+  setTitle();
+  addTaskBtn();
 
-  function complete() {
-    console.log('load complete');
-    setTitle();
-    // loadComplete();
-  }
-})();
+  // loadUpcoming()
+}
+
+function complete() {
+  console.log('load complete');
+  setTitle();
+  addTaskBtn();
+
+  // loadComplete();
+}

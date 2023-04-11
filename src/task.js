@@ -1,9 +1,16 @@
 import eventListeners from './handlers';
-import render from './render';
+import {
+  toggleSidebar,
+  switchSidebar,
+  clearContent,
+  setTitle,
+  addTaskBox,
+  addTaskBtn,
+} from './render.js';
 
 class Task {
-  constructor(name, description, dueDate, priority) {
-    this.name = name;
+  constructor(title, description, dueDate, priority) {
+    this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
@@ -23,4 +30,4 @@ class Task {
   removeTask() {}
 }
 
-export default Task;
+export { Task };

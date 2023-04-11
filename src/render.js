@@ -35,4 +35,24 @@ const setTitle = function () {
   });
 };
 
-export { toggleSidebar, switchSidebar, clearContent, setTitle };
+const addTaskBtn = function () {
+  const content = document.querySelector('#content');
+  const span = document.createElement('span');
+  const addTaskBtn = document.createElement('button');
+
+  addTaskBtn.innerHTML = '<i class="fa-thin fa-plus icon"></i><span> Add task</span>';
+
+  addTaskBtn.id = 'addTaskBtn';
+
+  span.appendChild(addTaskBtn);
+  content.appendChild(span);
+};
+
+const addTaskBox = function () {
+  const content = document.querySelector('#content');
+  const inputBox = document.createElement('input');
+
+  content.appendChild(inputBox);
+};
+
+export { toggleSidebar, switchSidebar, clearContent, setTitle, addTaskBox, addTaskBtn };

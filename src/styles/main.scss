@@ -168,10 +168,17 @@ button {
   font-family: inherit;
 }
 
+div > span > button {
+  vertical-align: middle;
+}
+
+#content {
+  margin-left: 20px;
+}
+
 h2 {
-  margin: 20px;
-  padding: 20px;
   font-size: 50px;
+  margin: 20px 0px;
 }
 
 .taskFilterBtns {
@@ -221,26 +228,8 @@ h2 {
   width: 200px;
 }
 
-#addTaskBtn {
-  height: $addTaskBtn-height;
-  width: $addTaskBtn-width;
-  border-radius: 50%;
-  border: none;
-  background-color: $color-tertiary;
-}
-
-.floating-div {
-  position: fixed;
-  bottom: 20px;
-  right: 50%;
-  transform: translateX(calc($addTaskBtn-width / 2));
-}
-
 .icon {
-  display: inline-block;
-  text-align: center;
-  vertical-align: center;
-  font-size: 50px;
+  font-size: 20px;
 }
 
 #addProjectBtn {
@@ -255,6 +244,11 @@ h2 {
 
 .fa-square-plus {
   font-size: 20px;
+}
+
+#addTaskBtn {
+  border: none;
+  background-color: transparent;
 }
 
 @media only screen and (min-width: 600px) {
