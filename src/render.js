@@ -1,4 +1,5 @@
 import { eventListeners } from './handlers';
+import { formatDistance, subDa } from 'date-fns';
 
 const toggleSidebar = function () {
   const sidebar = document.querySelector('#sidebar');
@@ -37,22 +38,59 @@ const setTitle = function () {
 
 const addTaskBtn = function () {
   const content = document.querySelector('#content');
-  const span = document.createElement('span');
-  const addTaskBtn = document.createElement('button');
 
-  addTaskBtn.innerHTML = '<i class="fa-thin fa-plus icon"></i><span> Add task</span>';
+  const addTask = document.createElement('span');
 
-  addTaskBtn.id = 'addTaskBtn';
+  const addTask__btn = document.createElement('button');
+  addTask__btn.innerHTML = '<i class="fa-thin fa-plus icon"></i><span> Add task</span>';
+  addTask__btn.classList.add('addTask__btn');
 
-  span.appendChild(addTaskBtn);
+  if (addTask.children.length > 1) {
+    return;
+  }
+
+  addTask.appendChild(addTask__btn);
+
+  const addTask__title = document.createElement('textarea');
+  addTask.appendChild(addTask__title);
+
+  const addTask__desc = document.createElement('textarea');
+  addTask.appendChild(addTask__desc);
+
+  const addTask__inputs = document.createElement('div');
+  addTask.appendChild(addTask__inputs);
+
+  const addTask__priority = document.createElement('div');
+  const addTask__priority_label = document.createElement('span');
+  const addTask__priority_low = document.createElement('input');
+  const addTask__priority_med = document.createElement('input');
+  const addTask__priority_high = document.createElement('input');
+
+  // TODO: add radio btn properties
+
+  const addTask__dueDate = document.createElement('input');
+  const addTask__btn_submit = document.createElement('button');
+  addTask__inputs.appendChild(addTask__btn_submit);
+
+  span.classList.add('addTaskCtn');
+  span.appendChild(addTask);
   content.appendChild(span);
-};
 
-const addTaskBox = function () {
-  const content = document.querySelector('#content');
-  const inputBox = document.createElement('input');
+  // span has more than just the "add task" div
 
-  content.appendChild(inputBox);
+  addTaskBtn.textContent = 'Add Task';
+  addTaskBtn.classList.add('confirmAddTaskBtn');
+  taskTitleBox.classList.add('taskTitleBox');
+  taskDescBox.classList.add('taskDescBox');
+  cancel.textContent = 'Cancel';
+
+  taskBoxCtn.appendChild(taskTitleBox);
+  taskBoxCtn.appendChild(taskDescBox);
+  span.appendChild(taskBoxCtn);
+  span.appendChild(cancel);
+  span.appendChild(addTaskBtn);
+
+  content.appendChild(span);
 };
 
 export { toggleSidebar, switchSidebar, clearContent, setTitle, addTaskBox, addTaskBtn };

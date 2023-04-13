@@ -16,8 +16,13 @@ const eventListeners = function () {
 
   document.addEventListener('click', function (e) {
     const target = e.target.closest('#addTaskBtn');
-    console.log(target);
+    if (target) {
+      addTaskBox();
+    }
+  });
 
+  document.addEventListener('click', function (e) {
+    const target = e.target.closest('#confirmAddTaskBtn');
     if (target) {
       Task.addTask();
     }
