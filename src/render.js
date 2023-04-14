@@ -37,60 +37,91 @@ const setTitle = function () {
 };
 
 const addTaskBtn = function () {
+  console.log('render: addTaskBtn');
   const content = document.querySelector('#content');
-
   const addTask = document.createElement('span');
 
   const addTask__btn = document.createElement('button');
   addTask__btn.innerHTML = '<i class="fa-thin fa-plus icon"></i><span> Add task</span>';
   addTask__btn.classList.add('addTask__btn');
 
-  if (addTask.children.length > 1) {
+  if (content.querySelector('.addTask')) {
     return;
   }
+
+  addTask.classList.add('addTask');
 
   addTask.appendChild(addTask__btn);
 
   const addTask__title = document.createElement('textarea');
   addTask.appendChild(addTask__title);
+  addTask__title.classList.add('addTask__title');
 
   const addTask__desc = document.createElement('textarea');
   addTask.appendChild(addTask__desc);
+  addTask__desc.classList.add('addTask__desc');
 
   const addTask__inputs = document.createElement('div');
   addTask.appendChild(addTask__inputs);
+  addTask__inputs.classList.add('addTask__inputs');
 
   const addTask__priority = document.createElement('div');
-  const addTask__priority_label = document.createElement('span');
-  const addTask__priority_low = document.createElement('input');
-  const addTask__priority_med = document.createElement('input');
-  const addTask__priority_high = document.createElement('input');
+  addTask__priority.classList.add('addTask__priority');
+
+  const addTask__priority_btn = document.createElement('button');
+  addTask__priority_btn.classList.add('addTask__priority_btn');
+  addTask__priority_btn.textContent = 'priority';
+  addTask__priority.appendChild(addTask__priority_btn);
+
+  const addTask__priority_list = document.createElement('div');
+  addTask__priority_list.classList.add('addTask__priority_list');
+
+  const addTask__priority_low = document.createElement('a');
+  addTask__priority_low.textContent = 'low';
+  addTask__priority_low.setAttribute('href', '#');
+
+  const addTask__priority_med = document.createElement('a');
+  addTask__priority_med.textContent = 'med';
+  addTask__priority_med.setAttribute('href', '#');
+
+  const addTask__priority_high = document.createElement('a');
+  addTask__priority_high.textContent = 'high';
+  addTask__priority_high.setAttribute('href', '#');
+
+  addTask__priority_list.appendChild(addTask__priority_low);
+  addTask__priority_list.appendChild(addTask__priority_med);
+  addTask__priority_list.appendChild(addTask__priority_high);
 
   // TODO: add radio btn properties
+  addTask__priority.appendChild(addTask__priority_list);
+
+  addTask.appendChild(addTask__priority);
 
   const addTask__dueDate = document.createElement('input');
   const addTask__btn_submit = document.createElement('button');
   addTask__inputs.appendChild(addTask__btn_submit);
 
-  span.classList.add('addTaskCtn');
-  span.appendChild(addTask);
-  content.appendChild(span);
+  content.appendChild(addTask);
 
-  // span has more than just the "add task" div
+  // span.classList.add('addTaskCtn');
+  // span.appendChild(addTask);
+  // content.appendChild(span);
 
-  addTaskBtn.textContent = 'Add Task';
-  addTaskBtn.classList.add('confirmAddTaskBtn');
-  taskTitleBox.classList.add('taskTitleBox');
-  taskDescBox.classList.add('taskDescBox');
-  cancel.textContent = 'Cancel';
+  // // span has more than just the "add task" div
 
-  taskBoxCtn.appendChild(taskTitleBox);
-  taskBoxCtn.appendChild(taskDescBox);
-  span.appendChild(taskBoxCtn);
-  span.appendChild(cancel);
-  span.appendChild(addTaskBtn);
+  // addTaskBtn.textContent = 'Add Task';
+  // addTaskBtn.classList.add('confirmAddTaskBtn');
+  // taskTitleBox.classList.add('taskTitleBox');
+  // taskDescBox.classList.add('taskDescBox');
+  // cancel.textContent = 'Cancel';
 
-  content.appendChild(span);
+  // taskBoxCtn.appendChild(taskTitleBox);
+  // taskBoxCtn.appendChild(taskDescBox);
+  // span.appendChild(taskBoxCtn);
+  // span.appendChild(cancel);
+  // span.appendChild(addTaskBtn);
+
+  // content.appendChild(span);
 };
 
-export { toggleSidebar, switchSidebar, clearContent, setTitle, addTaskBox, addTaskBtn };
+export { toggleSidebar, switchSidebar, clearContent, setTitle, addTaskBtn };

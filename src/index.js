@@ -36,14 +36,12 @@ document.addEventListener('click', (e) => {
 });
 
 function all() {
-  console.log('load all');
   setTitle();
   addTaskBtn();
   // loadAll();
 }
 
 function today() {
-  console.log('load today');
   setTitle();
   addTaskBtn();
 
@@ -51,7 +49,6 @@ function today() {
 }
 
 function upcoming() {
-  console.log('load upcoming');
   setTitle();
   addTaskBtn();
 
@@ -59,7 +56,6 @@ function upcoming() {
 }
 
 function complete() {
-  console.log('load complete');
   setTitle();
   addTaskBtn();
 

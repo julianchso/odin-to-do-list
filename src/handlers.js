@@ -1,11 +1,4 @@
-import {
-  toggleSidebar,
-  switchSidebar,
-  clearContent,
-  setTitle,
-  addTaskBox,
-  addTaskBtn,
-} from './render.js';
+import { toggleSidebar, switchSidebar, clearContent, setTitle, addTaskBtn } from './render.js';
 
 import { Task } from './task.js';
 
@@ -15,9 +8,9 @@ const eventListeners = function () {
   hamburgerMenu.addEventListener('click', toggleSidebar);
 
   document.addEventListener('click', function (e) {
-    const target = e.target.closest('#addTaskBtn');
+    const target = e.target.closest('.addTask__btn');
     if (target) {
-      addTaskBox();
+      addTaskBtn();
     }
   });
 
