@@ -44,20 +44,17 @@ function all() {
 function today() {
   setTitle();
   addTaskBtn();
-
   // loadToday();
 }
 
 function upcoming() {
   setTitle();
   addTaskBtn();
-
   // loadUpcoming()
 }
 
 function complete() {
   setTitle();
   addTaskBtn();
-
   // loadComplete();
 }

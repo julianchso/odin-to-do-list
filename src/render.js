@@ -38,6 +38,9 @@ const setTitle = function () {
 
 const addTaskBtn = function () {
   const content = document.querySelector('#content');
+  if (content.querySelector('.addTask')) {
+    return;
+  }
 
   const addTask = document.createElement('span');
   addTask.classList.add('addTask');
@@ -48,21 +51,18 @@ const addTaskBtn = function () {
   addTask__btn.innerHTML = '<i class="fa-thin fa-plus icon"></i><span> Add task</span>';
   addTask__btn.classList.add('addTask__btn');
 
-  if (content.querySelector('.addTask')) {
-    return;
-  }
+  content.appendChild(addTask);
+
+  const addTask__inputs = document.createElement('div');
+  addTask__inputs.classList.add('addTask__inputs');
 
   const addTask__title = document.createElement('textarea');
-  addTask.appendChild(addTask__title);
+  addTask__inputs.appendChild(addTask__title);
   addTask__title.classList.add('addTask__title');
 
   const addTask__desc = document.createElement('textarea');
-  addTask.appendChild(addTask__desc);
+  addTask__inputs.appendChild(addTask__desc);
   addTask__desc.classList.add('addTask__desc');
-
-  const addTask__inputs = document.createElement('div');
-  addTask.appendChild(addTask__inputs);
-  addTask__inputs.classList.add('addTask__inputs');
 
   const addTask__priority = document.createElement('div');
   addTask__priority.classList.add('addTask__priority');
@@ -93,7 +93,9 @@ const addTaskBtn = function () {
 
   addTask__priority.appendChild(addTask__priority_list);
 
-  addTask.appendChild(addTask__priority);
+  addTask__inputs.appendChild(addTask__priority);
+
+  addTask.appendChild(addTask__inputs);
 
   const addTask__dueDate = document.createElement('input');
 

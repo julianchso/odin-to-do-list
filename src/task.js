@@ -15,8 +15,6 @@ class Task {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.project = project;
-    this.tasks = [];
   }
 
   // save project and todos to localStorage everytime a project is created.
