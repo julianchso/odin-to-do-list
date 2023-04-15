@@ -42,6 +42,7 @@ const addTaskBtn = function () {
     return;
   }
 
+  // create addTask div that has child nodes of the add task button and a child that includes all inputs.
   const addTask = document.createElement('span');
   addTask.classList.add('addTask');
 
@@ -55,7 +56,17 @@ const addTaskBtn = function () {
 
   const addTask__inputs = document.createElement('div');
   addTask__inputs.classList.add('addTask__inputs');
+  addTask__inputs.classList.add('hidden');
 
+  document.addEventListener('click', function (e) {
+    const target = e.target.closest('.addTask__btn');
+    if (target) {
+      console.log('target: add task button');
+      addTask__inputs.classList.toggle('hidden');
+    }
+  });
+
+  //TODO: break up add task button and task inputs into two functions?
   const addTask__title = document.createElement('textarea');
   addTask__inputs.appendChild(addTask__title);
   addTask__title.classList.add('addTask__title');
