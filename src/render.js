@@ -6,17 +6,6 @@ const toggleSidebar = function () {
   sidebar.classList.toggle('hidden');
 };
 
-// TODO
-const switchSidebar = function () {
-  const windowSize700 = window.matchMedia('(min-width: 600px)');
-  if (windowSize700) {
-    sidebar.classList.remove('hidden');
-  } else if (!windowSize700) {
-    sidebar.classList.add('hidden');
-  }
-};
-// end TODO
-
 const clearContent = function () {
   const content = document.querySelector('#content');
   content.textContent = '';
@@ -54,82 +43,78 @@ const addTaskBtn = function () {
 
   content.appendChild(addTask);
 
-  const addTask__inputs = document.createElement('div');
-  addTask__inputs.classList.add('addTask__inputs');
-  addTask__inputs.classList.add('hidden');
+  const addTask__form = document.createElement('form');
+  addTask__form.classList.add('addTask__form');
+  addTask__form.classList.add('hidden');
 
   document.addEventListener('click', function (e) {
     const target = e.target.closest('.addTask__btn');
     if (target) {
       console.log('target: add task button');
-      addTask__inputs.classList.remove('hidden');
+      addTask__form.classList.remove('hidden');
       addTask__btn.classList.add('hidden');
     }
   });
 
   //TODO: break up add task button and task inputs into two functions?
   const addTask__title = document.createElement('textarea');
-  addTask__inputs.appendChild(addTask__title);
+  addTask__form.appendChild(addTask__title);
   addTask__title.classList.add('addTask__title');
   addTask__title.classList.add('font-main');
   addTask__title.setAttribute('placeholder', 'Task Name');
 
   const addTask__desc = document.createElement('textarea');
-  addTask__inputs.appendChild(addTask__desc);
+  addTask__form.appendChild(addTask__desc);
   addTask__desc.classList.add('addTask__desc');
   addTask__desc.classList.add('font-main');
   addTask__desc.setAttribute('placeholder', 'Description');
 
-  const addTask__priority_dropdown = document.createElement('div');
+  // priority
+  const addTask__priority_dropdown = document.createElement('select');
   addTask__priority_dropdown.classList.add('addTask__priority-dropdown');
 
-  const addTask__priority_btn = document.createElement('button');
-  addTask__priority_btn.classList.add('addTask__priority-btn');
-  addTask__priority_btn.classList.add('btn-secondary');
-  addTask__priority_btn.textContent = 'priority';
-  addTask__priority_dropdown.appendChild(addTask__priority_btn);
+  const addTask__priority_noSelection = document.createElement('option');
+  addTask__priority_noSelection.textContent = 'Priority';
+  addTask__priority_dropdown.appendChild(addTask__priority_noSelection);
 
-  const addTask__priority_list = document.createElement('div');
-  addTask__priority_list.classList.add('addTask__priority-list');
-
-  const addTask__priority_low = document.createElement('a');
-  addTask__priority_low.classList.add('addTask__priority-low');
-  addTask__priority_low.textContent = 'low';
-  addTask__priority_low.setAttribute('href', '#');
-
-  const addTask__priority_med = document.createElement('a');
-  addTask__priority_med.classList.add('addTask__priority-med');
-  addTask__priority_med.textContent = 'med';
-  addTask__priority_med.setAttribute('href', '#');
-
-  const addTask__priority_high = document.createElement('a');
-  addTask__priority_high.classList.add('addTask__priority-high');
+  const addTask__priority_high = document.createElement('option');
+  addTask__priority_high.setAttribute('value', 'high');
   addTask__priority_high.textContent = 'high';
-  addTask__priority_high.setAttribute('href', '#');
+  addTask__priority_dropdown.appendChild(addTask__priority_high);
 
-  addTask__priority_list.appendChild(addTask__priority_low);
-  addTask__priority_list.appendChild(addTask__priority_med);
-  addTask__priority_list.appendChild(addTask__priority_high);
+  const addTask__priority_med = document.createElement('option');
+  addTask__priority_med.setAttribute('value', 'med');
+  addTask__priority_med.textContent = 'med';
+  addTask__priority_dropdown.appendChild(addTask__priority_med);
 
-  addTask__priority_dropdown.appendChild(addTask__priority_list);
+  const addTask__priority_low = document.createElement('option');
+  addTask__priority_low.setAttribute('value', 'low');
+  addTask__priority_low.textContent = 'low';
+  addTask__priority_dropdown.appendChild(addTask__priority_low);
 
-  addTask__inputs.appendChild(addTask__priority_dropdown);
+  addTask__form.appendChild(addTask__priority_dropdown);
 
-  addTask.appendChild(addTask__inputs);
+  addTask.appendChild(addTask__form);
 
+  // button for date input
   const addTask__dueDate = document.createElement('input');
+  addTask__dueDate.setAttribute('type', 'date');
+  addTask__dueDate.classList.add('addTask__dueDate');
 
+  addTask__form.appendChild(addTask__dueDate);
+
+  // cancel and submit task button
   const addTask__btn_cancel = document.createElement('button');
   addTask__btn_cancel.classList.add('addTask__btn-cancel');
   addTask__btn_cancel.classList.add('btn-secondary');
   addTask__btn_cancel.textContent = 'Cancel';
-  addTask__inputs.appendChild(addTask__btn_cancel);
+  addTask__form.appendChild(addTask__btn_cancel);
 
   const addTask__btn_submit = document.createElement('button');
   addTask__btn_submit.classList.add('addTask__btn-submit');
   addTask__btn_submit.classList.add('btn-secondary');
   addTask__btn_submit.textContent = 'Add Task';
-  addTask__inputs.appendChild(addTask__btn_submit);
+  addTask__form.appendChild(addTask__btn_submit);
 
   content.appendChild(addTask);
 };
@@ -141,16 +126,28 @@ const showTaskBtn = function () {
 };
 
 const hideAddTaskInputs = function () {
-  const addTask__inputs = document.querySelector('.addTask__inputs');
-  addTask__inputs.classList.add('hidden');
+  const addTask__form = document.querySelector('.addTask__form');
+  addTask__form.classList.add('hidden');
 };
+
+// TODO
+const switchSidebar = function () {
+  const windowSize700 = window.matchMedia('(min-width: 600px)');
+  if (windowSize700) {
+    sidebar.classList.remove('hidden');
+  } else if (!windowSize700) {
+    sidebar.classList.add('hidden');
+  }
+};
+// end TODO
 
 export {
   toggleSidebar,
-  switchSidebar,
+  // switchSidebar,
   clearContent,
   setTitle,
   addTaskBtn,
   showTaskBtn,
   hideAddTaskInputs,
+  // changePriority,
 };

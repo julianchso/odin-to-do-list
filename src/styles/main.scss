@@ -265,7 +265,7 @@ h2 {
   border-radius: 5px;
 }
 
-.addTask__inputs {
+.addTask__form {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
@@ -322,6 +322,7 @@ h2 {
   margin: 5px;
   padding: 5px 10px;
   font-size: inherit;
+  background-color: #fff;
 }
 
 .addTask__priority-low {
@@ -343,6 +344,11 @@ h2 {
 
 .addTask__priority-list a:hover {
   background-color: $color-secondary;
+}
+
+.addTask__dueDate {
+  margin: 5px;
+  padding: 5px 10px;
 }
 
 // Priority dropdown settings end //
