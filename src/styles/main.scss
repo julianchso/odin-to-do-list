@@ -3,6 +3,10 @@
    License: none (public domain)
 */
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body,
 div,
@@ -135,6 +139,7 @@ $color-secondary: rgb(240, 240, 240);
 $color-tertiary: #e0d3b6;
 $addTaskBtn-height: 100px;
 $addTaskBtn-width: 100px;
+$margin-5px: 5px;
 
 $font-main: 'Montserrat', sans-serif, arial, helvetica;
 
@@ -166,6 +171,12 @@ body {
 button {
   cursor: pointer;
   font-family: inherit;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
 }
 
 div > span > button {
@@ -220,10 +231,6 @@ h2 {
   background-color: transparent;
 }
 
-.hidden {
-  display: none;
-}
-
 .projectContainer {
   width: 200px;
 }
@@ -249,6 +256,99 @@ h2 {
 .addTask__btn {
   border: none;
   background-color: transparent;
+}
+
+.btn-secondary {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.addTask__inputs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  border: 1px solid rgb(150, 150, 150);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.addTask__btn-submit {
+  background-color: $color-primary;
+  margin-left: auto;
+  margin: 5px 0;
+}
+
+.addTask__btn-cancel {
+  background-color: $color-secondary;
+  margin-left: auto;
+}
+
+.addTask__title {
+  flex-basis: 100%;
+  font-family: inherit;
+  margin: $margin-5px;
+}
+
+.addTask__desc {
+  height: 50px;
+  flex-basis: 100%;
+  font-family: inherit;
+  margin: $margin-5px;
+}
+
+// Priority dropdown settings //
+// Dropdown button for priority
+.addTask__priority-btn {
+  border: none;
+}
+
+.addTask__priority-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.addTask__priority-list {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.addTask__priority-list a {
+  text-decoration: none;
+  display: block;
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: inherit;
+}
+
+.addTask__priority-low {
+  border-left: solid 2px rgb(0, 150, 255);
+}
+
+.addTask__priority-med {
+  border-left: solid 2px rgb(255, 191, 0);
+}
+
+.addTask__priority-high {
+  border-left: solid 2px rgb(210, 4, 45);
+}
+
+// Show the dropdown menu on hover
+.addTask__priority-dropdown:hover .addTask__priority-list {
+  display: block;
+}
+
+.addTask__priority-list a:hover {
+  background-color: $color-secondary;
+}
+
+// Priority dropdown settings end //
+
+.hidden {
+  display: none;
 }
 
 @media only screen and (min-width: 600px) {
