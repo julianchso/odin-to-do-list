@@ -105,14 +105,16 @@ const addTaskBtn = function () {
 
   // cancel and submit task button
   const addTask__btn_cancel = document.createElement('button');
-  addTask__btn_cancel.classList.add('addTask__btn-cancel');
+  addTask__btn_cancel.classList.add('btn-cancel');
   addTask__btn_cancel.classList.add('btn-secondary');
+  addTask__btn_cancel.setAttribute('type', 'button');
   addTask__btn_cancel.textContent = 'Cancel';
   addTask__form.appendChild(addTask__btn_cancel);
 
   const addTask__btn_submit = document.createElement('button');
-  addTask__btn_submit.classList.add('addTask__btn-submit');
+  addTask__btn_submit.classList.add('btn-submit');
   addTask__btn_submit.classList.add('btn-secondary');
+  addTask__btn_submit.setAttribute('type', 'button');
   addTask__btn_submit.textContent = 'Add Task';
   addTask__form.appendChild(addTask__btn_submit);
 

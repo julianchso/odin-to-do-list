@@ -239,7 +239,7 @@ h2 {
   font-size: 20px;
 }
 
-#addProjectBtn {
+.addProjectBtn {
   border: none;
   background: transparent;
 }
@@ -275,13 +275,13 @@ h2 {
   margin: 10px 0;
 }
 
-.addTask__btn-submit {
+.btn-submit {
   background-color: $color-primary;
   margin-left: auto;
   margin: 5px 0;
 }
 
-.addTask__btn-cancel {
+.btn-cancel {
   background-color: $color-secondary;
   margin-left: auto;
 }
@@ -352,6 +352,16 @@ h2 {
 }
 
 // Priority dropdown settings end //
+
+// Project modal box start //
+
+.modalProject__Content {
+  display: flex;
+  height: 300px;
+  width: 100px;
+}
+
+// Project modal box end //
 
 .hidden {
   display: none;

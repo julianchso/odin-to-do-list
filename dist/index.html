@@ -36,14 +36,24 @@
         <div class="projectContainer">
           <div id="projectHeader">
             <span>Projects</span>
-            <button id="addProjectBtn">
+            <button class="addProjectBtn">
               <i class="fa-regular fa-square-plus"></i>
             </button>
           </div>
         </div>
       </div>
       <div id="content">
-        <div id="tasks"></div>
+        <div class="taskList"></div>
+      </div>
+      <div class="modalProject__Ctn hidden">
+        <div class="modalProject__Content">
+          <form action="" class="modelProject__form">
+            <span>Name</span>
+            <input type="text" id="name" name="name" />
+            <button type="button" class="btn-cancel">Cancel</button>
+            <button type="button" class="btn-submit">Add</button>
+          </form>
+        </div>
       </div>
     </div>
   </body>
