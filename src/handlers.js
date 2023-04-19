@@ -5,22 +5,23 @@ import {
   setTitle,
   addTaskBtn,
   showTaskBtn,
-  hideAddTaskInputs,
+  addTask_form_hide,
   changePriority,
+  showModal,
+  hideModal,
 } from './render.js';
+
+import { setProject } from './project.js';
 
 import { Task } from './task.js';
 
 const eventListeners = function () {
   const tasks = document.querySelector('#tasks');
   const hamburgerMenu = document.querySelector('#hamburger-menu');
-  const addTask__btn_cancel = document.querySelector('.addTask__btn-cancel');
-  const addTask__priority_dropdown = document.querySelector('.addTask__priority-dropdown');
-  const sidebarBtns = document.querySelectorAll('.sidebarBtn ');
-  const modalProject__Content = document.querySelector('.modalProject__Content');
-  const modalProject__Ctn = document.querySelector('.modalProject__Ctn');
+  const sidebarBtns = document.querySelectorAll('.sidebarBtn');
+  const modalProject__ctn = document.querySelector('.modalProject__ctn');
 
-  const addProjectBtn = document.querySelector('.addProjectBtn');
+  const sidebar__addProject = document.querySelector('.sidebar__addProject');
 
   hamburgerMenu.addEventListener('click', toggleSidebar);
 
@@ -37,7 +38,7 @@ const eventListeners = function () {
     const target = e.target.closest('.addTask__btn-cancel');
     if (target) {
       showTaskBtn();
-      hideAddTaskInputs();
+      addTask_form_hide();
     }
   });
 
@@ -58,15 +59,36 @@ const eventListeners = function () {
     });
   });
 
-  addProjectBtn.addEventListener('click', function () {
-    modalProject__Ctn.classList.remove('hidden');
-    console.log('add new project');
+  sidebar__addProject.addEventListener('click', function () {
+    showModal();
   });
 
   document.addEventListener('click', function (e) {
-    if (e.target == modalProject__Ctn) {
-      console.log('hide modal');
-      modalProject__Ctn.classList.add('hidden');
+    if (e.target == modalProject__ctn) {
+      hideModal();
+    }
+  });
+
+  const modalProject__cancel = document.querySelector('.modalProject__cancel');
+  modalProject__cancel.addEventListener('click', function (e) {
+    if (e.target == modalProject__ctn) {
+      hideModal();
+    }
+  });
+
+  const modalProject__submit = document.querySelector('.modalProject__submit');
+  modalProject__submit.addEventListener('click', function () {
+    setProject();
+  });
+
+  // const addTask__btn_cancel = document.querySelector('.addTask__btn_cancel');
+  // addTask__btn_cancel.addEventListener('click', function () {});
+
+  document.addEventListener('click', function (e) {
+    const target = e.target.closest('.addTask__btn_cancel');
+    if (target) {
+      addTask_form_hide();
+      showTaskBtn();
     }
   });
 

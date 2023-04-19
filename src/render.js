@@ -105,14 +105,14 @@ const addTaskBtn = function () {
 
   // cancel and submit task button
   const addTask__btn_cancel = document.createElement('button');
-  addTask__btn_cancel.classList.add('btn-cancel');
+  addTask__btn_cancel.classList.add('addTask__btn_cancel');
   addTask__btn_cancel.classList.add('btn-secondary');
   addTask__btn_cancel.setAttribute('type', 'button');
   addTask__btn_cancel.textContent = 'Cancel';
   addTask__form.appendChild(addTask__btn_cancel);
 
   const addTask__btn_submit = document.createElement('button');
-  addTask__btn_submit.classList.add('btn-submit');
+  addTask__btn_submit.classList.add('addTask__btn_submit');
   addTask__btn_submit.classList.add('btn-secondary');
   addTask__btn_submit.setAttribute('type', 'button');
   addTask__btn_submit.textContent = 'Add Task';
@@ -127,10 +127,25 @@ const showTaskBtn = function () {
   addTask__btn.classList.remove('hidden');
 };
 
-const hideAddTaskInputs = function () {
+const addTask_form_hide = function () {
   const addTask__form = document.querySelector('.addTask__form');
   addTask__form.classList.add('hidden');
 };
+
+const showModal = function () {
+  const modalProject__ctn = document.querySelector('.modalProject__ctn');
+  console.log(modalProject__ctn);
+  modalProject__ctn.classList.remove('hidden');
+  console.log('add new project');
+};
+
+const hideModal = function () {
+  const modalProject__ctn = document.querySelector('.modalProject__ctn');
+
+  modalProject__ctn.classList.add('hidden');
+};
+
+const addTask__btn_cancel = function () {};
 
 // TODO
 const switchSidebar = function () {
@@ -150,6 +165,8 @@ export {
   setTitle,
   addTaskBtn,
   showTaskBtn,
-  hideAddTaskInputs,
+  addTask_form_hide,
   // changePriority,
+  showModal,
+  hideModal,
 };

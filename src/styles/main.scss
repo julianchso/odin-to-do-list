@@ -188,7 +188,7 @@ div > span > button {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 25px;
   margin: 20px 0px;
 }
 
@@ -239,7 +239,7 @@ h2 {
   font-size: 20px;
 }
 
-.addProjectBtn {
+.sidebar__addProject {
   border: none;
   background: transparent;
 }
@@ -275,13 +275,13 @@ h2 {
   margin: 10px 0;
 }
 
-.btn-submit {
+.addTask__btn_submit {
   background-color: $color-primary;
   margin-left: auto;
   margin: 5px 0;
 }
 
-.btn-cancel {
+.addTask__btn_cancel {
   background-color: $color-secondary;
   margin-left: auto;
 }
@@ -355,11 +355,39 @@ h2 {
 
 // Project modal box start //
 
-.modalProject__Content {
+.modalProject__ctn {
   display: flex;
-  height: 300px;
-  width: 100px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  backdrop-filter: blur(10px);
 }
+
+.modalProject__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 40%;
+}
+
+.modalProject__form {
+  // display: flex;
+}
+
+// .modalProject__nameHeader {
+//   flex-basis: 25%;
+// }
 
 // Project modal box end //
 

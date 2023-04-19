@@ -24,9 +24,6 @@ eventListeners();
 
 // index.js: bring it all together
 
-clearContent();
-all();
-
 document.addEventListener('click', (e) => {
   const target = e.target.innerText;
 

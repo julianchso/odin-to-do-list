@@ -36,7 +36,7 @@
         <div class="projectContainer">
           <div id="projectHeader">
             <span>Projects</span>
-            <button class="addProjectBtn">
+            <button class="sidebar__addProject">
               <i class="fa-regular fa-square-plus"></i>
             </button>
           </div>
@@ -45,13 +45,14 @@
       <div id="content">
         <div class="taskList"></div>
       </div>
-      <div class="modalProject__Ctn hidden">
-        <div class="modalProject__Content">
+      <div class="modalProject__ctn hidden">
+        <div class="modalProject__content">
           <form action="" class="modelProject__form">
-            <span>Name</span>
-            <input type="text" id="name" name="name" />
-            <button type="button" class="btn-cancel">Cancel</button>
-            <button type="button" class="btn-submit">Add</button>
+            <h2>Add Project</h2>
+            <span class="modalProject__nameHeader">Name</span>
+            <input type="text" class="modalProject__name" name="name" />
+            <button type="button" class="modalProject__cancel btn-cancel">Cancel</button>
+            <button type="button" class="modalProject__submit btn-submit">Add</button>
           </form>
         </div>
       </div>

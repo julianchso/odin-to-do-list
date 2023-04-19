@@ -10,12 +10,13 @@ import {
 import { Project } from './project';
 
 class Task {
-  constructor(id, title, description, dueDate, priority) {
+  constructor(id, title, description, dueDate, priority, complete) {
     this.id = id;
     this.title = title;
     this.description = description;
     this.priority = priority;
     this.dueDate = dueDate;
+    this.complete = complete;
   }
 
   // save project and todos to localStorage everytime a project is created.
