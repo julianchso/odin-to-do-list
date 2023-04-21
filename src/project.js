@@ -1,6 +1,6 @@
 import { Task } from './task';
 
-const LOCAL_STORAGE_PROJECT_KEY = 'project.lists';
+const LOCAL_STORAGE_PROJECT_KEY = 'project.list';
 
 // {"projectName":[{
 //   "id":"id",
@@ -12,19 +12,42 @@ const LOCAL_STORAGE_PROJECT_KEY = 'project.lists';
 //   "checked":true}
 // }
 
+// return localStorage.setItem(this.name, JSON.stringify(this.tasks));
+
+// getProject() {
+//   JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY || []));
+// }
+
 class Project {
-  constructor(name, tasks) {
-    this.name = name;
-    this.tasks = [];
+  constructor(name) {
+    this._id = getId();
+    this._name = name;
+    this._tasks = [];
   }
 
-  setProject() {
-    let projects = JSON.stringify();
+  get id() {
+    return this._id;
   }
 
-  getProject() {
-    let projects = JSON.parse(localStorage.getItem(LOCAL_STORAGE_PROJECT_KEY) || []);
+  set name(name) {
+    this._name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set tasks(task) {
+    this._tasks.push(task);
+  }
+
+  get tasks() {
+    return this._tasks;
   }
 }
 
-export { Project };
+function getId() {
+  return { id: Date.now() };
+}
+
+export { Project, getId };

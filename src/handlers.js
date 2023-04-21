@@ -11,7 +11,7 @@ import {
   hideModal,
 } from './render.js';
 
-import { setProject } from './project.js';
+import { Project } from './project.js';
 
 import { Task } from './task.js';
 
@@ -78,7 +78,8 @@ const eventListeners = function () {
 
   const modalProject__submit = document.querySelector('.modalProject__submit');
   modalProject__submit.addEventListener('click', function () {
-    setProject();
+    console.log(Project.setProject());
+    Project.setProject();
   });
 
   // const addTask__btn_cancel = document.querySelector('.addTask__btn_cancel');

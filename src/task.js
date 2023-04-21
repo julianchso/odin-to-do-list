@@ -7,41 +7,64 @@ import {
   addTaskBox,
   addTaskBtn,
 } from './render.js';
-import { Project } from './project';
+
+import { Project, getId } from './project';
 
 class Task {
-  constructor(id, title, description, dueDate, priority, complete) {
-    this.id = id;
-    this.title = title;
-    this.description = description;
-    this.priority = priority;
-    this.dueDate = dueDate;
-    this.complete = complete;
+  constructor(title, description, dueDate, priority, complete) {
+    this._id = getId();
+    this._title = title;
+    this._description = description;
+    this._priority = priority;
+    this._dueDate = dueDate;
+    this._complete = complete;
   }
 
   // save project and todos to localStorage everytime a project is created.
   // function that looks for data in localStorage when app is first loaded.
 
-  addTask() {
-    const addTask__title = document.querySelector('.addTask__title');
-    const addTask__desc = document.querySelector('.addTask__desc');
-    const addTask__priority_dropdown = document.querySelector('.addTask__priority-dropdown');
-    const addTask__dueDate = document.querySelector('.addTask__dueDate');
-    const addTask__btn_submit = document.querySelector('.addTask__btn-submit');
+  get id() {
+    return this._id;
+  }
 
-    addTask__btn_submit.addEventListener('click', function () {
-      this.id = Date.now();
-      this.title = addTask__title.value;
-      this.description = addTask__desc.value;
-      this.priority = addTask__priority_dropdown;
-      this.dueDate = addTask__dueDate.value;
+  set title(name) {
+    this._title = name;
+  }
 
-      console.log(this.id);
-      console.log(this.title);
-      console.log(this.description);
-      console.log(this.priority);
-      console.log(this.dueDate);
-    });
+  get title() {
+    return this._title;
+  }
+
+  set description(str) {
+    this._description = str;
+  }
+
+  get description() {
+    return this._description;
+  }
+
+  set priority(val) {
+    this._priority = val;
+  }
+
+  get priority() {
+    return this._priority;
+  }
+
+  set dueDate(date) {
+    this._dueDate = date;
+  }
+
+  get dueDate() {
+    return this._dueDate;
+  }
+
+  set complete(bool) {
+    this._complete = bool;
+  }
+
+  get complete() {
+    return this._complete;
   }
 
   editTask() {}
