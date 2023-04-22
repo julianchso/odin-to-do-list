@@ -75,6 +75,7 @@ const addTaskBtn = function () {
 
   const addTask__priority_noSelection = document.createElement('option');
   addTask__priority_noSelection.textContent = 'Priority';
+  addTask__priority_noSelection.setAttribute('value', 'no priority');
   addTask__priority_dropdown.appendChild(addTask__priority_noSelection);
 
   const addTask__priority_high = document.createElement('option');

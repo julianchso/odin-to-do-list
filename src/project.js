@@ -1,5 +1,4 @@
 import { Task } from './task';
-
 const LOCAL_STORAGE_PROJECT_KEY = 'project.list';
 
 // {"projectName":[{
@@ -44,6 +43,12 @@ class Project {
   get tasks() {
     return this._tasks;
   }
+
+  deleteTask() {}
+
+  get tasksToday() {}
+
+  get tasksUpcoming() {}
 }
 
 function getId() {

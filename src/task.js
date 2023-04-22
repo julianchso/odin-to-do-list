@@ -67,15 +67,9 @@ class Task {
     return this._complete;
   }
 
-  editTask() {}
-
   get allTasks() {
     return this.tasks;
   }
-
-  setPriority() {}
-
-  removeTask() {}
 }
 
 export { Task };

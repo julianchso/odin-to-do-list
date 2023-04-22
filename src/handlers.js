@@ -10,10 +10,9 @@ import {
   showModal,
   hideModal,
 } from './render.js';
-
 import { Project } from './project.js';
-
 import { Task } from './task.js';
+import { addTask } from './controller.js';
 
 const eventListeners = function () {
   const tasks = document.querySelector('#tasks');
@@ -35,17 +34,10 @@ const eventListeners = function () {
 
   // if add task cancel button is clicked on, hide add task inputs and show original add task button
   document.addEventListener('click', function (e) {
-    const target = e.target.closest('.addTask__btn-cancel');
+    const target = e.target.closest('.addTask__btn_cancel');
     if (target) {
       showTaskBtn();
       addTask_form_hide();
-    }
-  });
-
-  document.addEventListener('click', function (e) {
-    const target = e.target.closest('.addTask__btn-submit');
-    if (target) {
-      console.log('submit add task');
     }
   });
 
@@ -90,6 +82,15 @@ const eventListeners = function () {
     if (target) {
       addTask_form_hide();
       showTaskBtn();
+    }
+  });
+
+  // add task after clicking submit
+  document.addEventListener('click', function (e) {
+    const target = e.target.closest('.addTask__btn_submit');
+    if (target) {
+      console.log('submit add task');
+      addTask();
     }
   });
 

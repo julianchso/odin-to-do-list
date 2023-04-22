@@ -27,32 +27,28 @@ eventListeners();
 document.addEventListener('click', (e) => {
   const target = e.target.innerText;
 
-  if (target == 'All') all();
+  if (target == 'Inbox') inbox();
   if (target == 'Today') today();
   if (target == 'Upcoming') upcoming();
   if (target == 'Complete') complete();
 });
 
-function all() {
+function inbox() {
   setTitle();
   addTaskBtn();
-  // loadAll();
 }
 
 function today() {
   setTitle();
   addTaskBtn();
-  // loadToday();
 }
 
 function upcoming() {
   setTitle();
   addTaskBtn();
-  // loadUpcoming()
 }
 
 function complete() {
   setTitle();
   addTaskBtn();
-  // loadComplete();
 }
