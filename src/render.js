@@ -104,6 +104,11 @@ const addTaskBtn = function () {
 
   addTask__form.appendChild(addTask__dueDate);
 
+  // dropdown for project list
+  const addTask__projects = document.createElement('select');
+  addTask__priority_dropdown.classList.add('addTask__projects-dropdown');
+  // TODO get list of projects
+
   // cancel and submit task button
   const addTask__btn_cancel = document.createElement('button');
   addTask__btn_cancel.classList.add('addTask__btn_cancel');

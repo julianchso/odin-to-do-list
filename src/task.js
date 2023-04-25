@@ -11,12 +11,13 @@ import {
 import { Project, getId } from './project';
 
 class Task {
-  constructor(title, description, dueDate, priority, complete) {
+  constructor(title, description, dueDate, priority, project, complete) {
     this._id = getId();
     this._title = title;
     this._description = description;
     this._priority = priority;
     this._dueDate = dueDate;
+    this._project = project;
     this._complete = complete;
   }
 
@@ -57,6 +58,14 @@ class Task {
 
   get dueDate() {
     return this._dueDate;
+  }
+
+  set project(name) {
+    this._project = name;
+  }
+
+  get project() {
+    return this._project;
   }
 
   set complete(bool) {
