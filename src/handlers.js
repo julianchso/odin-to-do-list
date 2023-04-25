@@ -12,7 +12,7 @@ import {
 } from './render.js';
 import { Project } from './project.js';
 import { Task } from './task.js';
-import { addTask } from './controller.js';
+import { addProject, addTask } from './controller.js';
 
 const eventListeners = function () {
   const tasks = document.querySelector('#tasks');
@@ -55,8 +55,16 @@ const eventListeners = function () {
     showModal();
   });
 
+  // hide modal when clicked outside of container
   document.addEventListener('click', function (e) {
     if (e.target == modalProject__ctn) {
+      hideModal();
+    }
+  });
+
+  // hide modal when cancel button is clicked
+  document.addEventListener('click', function (e) {
+    if (e.target == modalProject__cancel) {
       hideModal();
     }
   });
@@ -70,8 +78,7 @@ const eventListeners = function () {
 
   const modalProject__submit = document.querySelector('.modalProject__submit');
   modalProject__submit.addEventListener('click', function () {
-    console.log(Project.setProject());
-    Project.setProject();
+    addProject();
   });
 
   // const addTask__btn_cancel = document.querySelector('.addTask__btn_cancel');

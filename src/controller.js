@@ -17,10 +17,14 @@ const addTask = () => {
 
 const addProject = () => {
   const name = document.querySelector('.modalProject__name').value;
-  let newProject = new Project(id, name);
+  let newProject = new Project(name);
+  console.log(newProject);
   return newProject;
 };
 
-const storage = () => {};
+// TODO
+// const storage = () => {
+//   const data =
+// };
 
 export { addTask, addProject };
