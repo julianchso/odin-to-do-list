@@ -147,6 +147,10 @@ body {
   font-family: $font-main;
 }
 
+li {
+  text-decoration: none;
+}
+
 .main-container {
   display: flex;
   width: 100%;
@@ -166,6 +170,7 @@ body {
   background-color: $color-secondary;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
 }
 
 button {
@@ -192,7 +197,7 @@ h2 {
   margin: 20px 0px;
 }
 
-.taskFilterBtns {
+.defaultProjectCtn {
   height: 350px;
   width: 90%;
   display: flex;
@@ -231,8 +236,9 @@ h2 {
   background-color: transparent;
 }
 
-.projectContainer {
-  width: 200px;
+.projectCtn {
+  height: 350px;
+  width: 90%;
 }
 
 .icon {
@@ -244,9 +250,10 @@ h2 {
   background: transparent;
 }
 
-#projectHeader {
+.projectHeader {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  padding: 5px 15px;
 }
 
 .fa-square-plus {

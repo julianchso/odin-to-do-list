@@ -24,23 +24,24 @@ class Project {
     this._tasks = [];
   }
 
-  get id() {
+  static get id() {
     return this._id;
   }
 
-  set name(name) {
+  static set name(name) {
+    if (name == '') return;
     this._name = name;
   }
 
-  get name() {
+  static get name() {
     return this._name;
   }
 
-  set tasks(task) {
+  static set tasks(task) {
     this._tasks.push(task);
   }
 
-  get tasks() {
+  static get tasks() {
     return this._tasks;
   }
 
@@ -51,8 +52,10 @@ class Project {
   get tasksUpcoming() {}
 }
 
+let myProject = new Project();
+
 function getId() {
   return { id: Date.now() };
 }
 
-export { Project, getId };
+export { Project, myProject, getId };

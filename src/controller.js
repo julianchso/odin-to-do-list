@@ -10,25 +10,22 @@ const addTask = () => {
   const project = document.querySelector('.');
   const complete = false;
 
-  // constructor(title, description, dueDate, priority, complete)
   let newTask = new Task(title, description, dueDate, priority, project, complete);
   console.log(newTask);
   return newTask;
 };
 
-const addProject = () => {
-  const name = document.querySelector('.modalProject__name').value;
-  let newProject = new Project(name);
-  console.log(newProject);
-  return newProject;
-};
-
-// TODO: pushing to object in localStorage
+// add project to local storage
 const addProjectToStorage = () => {
-  let projects = localStorage.getItem('data') ? JSON.parse(data) : [];
+  let ProjectInput = document.querySelector('.modalProject__name');
+  let name = ProjectInput.value;
+  let data = localStorage.getItem('data');
+  let newProject = new Project(name);
+  let projects = data ? JSON.parse(data) : [];
 
-  projects.push(addProject());
+  projects.push(newProject);
   localStorage.setItem('data', JSON.stringify(projects));
+  ProjectInput.value = '';
 };
 
 // {"home":[{"name":"brush teeth","priority":"low","date":"2021-12-12","details":" with colgate","project":"home","checked":true},{"name":"get dressed","priority":"high","date":"2021-11-11","details":"singlet cos its hot","project":"home","checked":false},{"name":"feed jimmy","priority":"medium","date":"2021-06-09","details":"only the finest bickies","project":"home","checked":true},{"name":"asdf home","priority":"medium","date":"2023-03-31","details":"asdf home","project":"home","checked":false}],
@@ -41,4 +38,4 @@ const addProjectToStorage = () => {
 
 // "wertwert":[]}
 
-export { addTask, addProject, addProjectToStorage };
+export { addTask, addProjectToStorage };

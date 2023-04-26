@@ -9,10 +9,11 @@ import {
   changePriority,
   showModal,
   hideModal,
+  renderProjects,
 } from './render.js';
 import { Project } from './project.js';
 import { Task } from './task.js';
-import { addProject, addTask, addProjectToStorage } from './controller.js';
+import { addTask, addProjectToStorage } from './controller.js';
 
 const eventListeners = function () {
   const tasks = document.querySelector('#tasks');
@@ -78,8 +79,9 @@ const eventListeners = function () {
 
   const modalProject__submit = document.querySelector('.modalProject__submit');
   modalProject__submit.addEventListener('click', function () {
-    addProject();
     addProjectToStorage();
+    hideModal();
+    renderProjects();
   });
 
   // const addTask__btn_cancel = document.querySelector('.addTask__btn_cancel');

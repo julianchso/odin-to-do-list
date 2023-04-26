@@ -1,5 +1,7 @@
 import { eventListeners } from './handlers';
 import { formatDistance, subDa } from 'date-fns';
+import { Task } from './task';
+import { Project, myProject, getId } from './project';
 
 const toggleSidebar = function () {
   const sidebar = document.querySelector('#sidebar');
@@ -140,9 +142,7 @@ const addTask_form_hide = function () {
 
 const showModal = function () {
   const modalProject__ctn = document.querySelector('.modalProject__ctn');
-  console.log(modalProject__ctn);
   modalProject__ctn.classList.remove('hidden');
-  console.log('add new project');
 };
 
 const hideModal = function () {
@@ -164,6 +164,35 @@ const switchSidebar = function () {
 };
 // end TODO
 
+const renderProjects = function () {
+  let data = JSON.parse(localStorage.getItem('data'));
+
+  const projectCtn = document.querySelector('.projectCtn');
+
+  const project__listCtn = document.querySelector('.project__listCtn');
+  project__listCtn.textContent = '';
+
+  const project__list = document.createElement('ul');
+  project__list.setAttribute('class', 'project__list');
+
+  data.forEach((project) => {
+    const project__name = document.createElement('li');
+    const project__btn = document.createElement('button');
+    project__btn.value = project._name;
+    project__btn.textContent = project._name;
+
+    project__btn.classList.add('sidebarBtn');
+
+    project__name.appendChild(project__btn);
+    project__list.appendChild(project__name);
+
+    console.log(project._name);
+  });
+
+  project__listCtn.appendChild(project__list);
+  projectCtn.appendChild(project__listCtn);
+};
+
 export {
   toggleSidebar,
   // switchSidebar,
@@ -175,4 +204,5 @@ export {
   // changePriority,
   showModal,
   hideModal,
+  renderProjects,
 };
