@@ -52,7 +52,6 @@ const addTaskBtn = function () {
   document.addEventListener('click', function (e) {
     const target = e.target.closest('.addTask__btn');
     if (target) {
-      console.log('target: add task button');
       addTask__form.classList.remove('hidden');
       addTask__btn.classList.add('hidden');
     }
@@ -106,10 +105,31 @@ const addTaskBtn = function () {
 
   addTask__form.appendChild(addTask__dueDate);
 
+  // START: TODO get list of projects
+
   // dropdown for project list
   const addTask__projects = document.createElement('select');
-  addTask__priority_dropdown.classList.add('addTask__projects-dropdown');
-  // TODO get list of projects
+  addTask__projects.classList.add('addTask__projects-dropdown');
+  const addTask__projects_inbox = document.createElement('option');
+  addTask__projects_inbox.textContent = 'Inbox';
+  addTask__projects.appendChild(addTask__projects_inbox);
+
+  let data = localStorage.getItem('data');
+  let projects = data ? JSON.parse(data) : [];
+
+  projects.forEach((project) => {
+    console.log(project._name);
+    let projectSelection = document.createElement('option');
+    projectSelection.textContent = project._name;
+    addTask__projects.appendChild(projectSelection);
+    // document.createElement('option');
+    // addTask__priority_noSelection.textContent = project._name;
+    // addTask__priority_noSelection.setAttribute('value', 'no priority');
+  });
+
+  addTask__form.appendChild(addTask__projects);
+
+  // END: TODO get list of projects
 
   // cancel and submit task button
   const addTask__btn_cancel = document.createElement('button');
@@ -131,7 +151,6 @@ const addTaskBtn = function () {
 
 const showTaskBtn = function () {
   const addTask__btn = document.querySelector('.addTask__btn');
-  console.log(addTask__btn);
   addTask__btn.classList.remove('hidden');
 };
 
@@ -150,8 +169,6 @@ const hideModal = function () {
 
   modalProject__ctn.classList.add('hidden');
 };
-
-const addTask__btn_cancel = function () {};
 
 // TODO
 const switchSidebar = function () {
@@ -185,8 +202,6 @@ const renderProjects = function () {
 
     project__name.appendChild(project__btn);
     project__list.appendChild(project__name);
-
-    console.log(project._name);
   });
 
   project__listCtn.appendChild(project__list);
