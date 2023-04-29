@@ -2,13 +2,19 @@ import './styles/main.scss';
 import { eventListeners } from './handlers';
 import {
   toggleSidebar,
-  switchSidebar,
+  // switchSidebar,
   clearContent,
   setTitle,
-  addTaskBox,
   addTaskBtn,
+  showTaskBtn,
+  addTask_form_hide,
+  // changePriority,
+  showModal,
+  hideModal,
+  renderProjects,
 } from './render.js';
 import { Task } from './task';
+// import { render } from 'sass';
 
 // Rule of thumb: if you only ever need ONE of something (gameBoard, displayController), use a module.
 // If you need multiples of something (players!), create them with factories.
@@ -18,7 +24,12 @@ import { Task } from './task';
 // Project List: Module
 
 // handlers.js
-eventListeners();
+window.addEventListener('load', initialize());
+
+function initialize() {
+  eventListeners();
+  renderProjects();
+}
 
 // render.js
 

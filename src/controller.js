@@ -7,12 +7,35 @@ const addTask = () => {
   const description = document.querySelector('.addTask__desc').value;
   const priority = document.querySelector('.addTask__priority-dropdown').value;
   const dueDate = document.querySelector('.addTask__dueDate').value;
-  const project = document.querySelector('.');
+  const project = document.querySelector('.addTask__projects-dropdown').value;
   const complete = false;
 
-  let newTask = new Task(title, description, dueDate, priority, project, complete);
-  console.log(newTask);
-  return newTask;
+  // let newTask = new Task(title, description, dueDate, priority, project, complete);
+  // console.log(newTask);
+  // return newTask;
+
+  addTask_clearFields();
+};
+
+const addTask_clearFields = () => {
+  const title = document.querySelector('.addTask__title');
+  const description = document.querySelector('.addTask__desc');
+  const priority = document.querySelector('.addTask__priority-dropdown');
+  const dueDate = document.querySelector('.addTask__dueDate');
+  const project = document.querySelector('.addTask__projects-dropdown');
+  const complete = false;
+
+  let fields = [title, description, dueDate];
+
+  fields.forEach((field) => {
+    field.value = '';
+  });
+
+  let dropdowns = [priority, project];
+
+  dropdowns.forEach((option) => {
+    option.selectedIndex = 0;
+  });
 };
 
 // add project to local storage

@@ -118,7 +118,6 @@ const addTaskBtn = function () {
   let projects = data ? JSON.parse(data) : [];
 
   projects.forEach((project) => {
-    console.log(project._name);
     let projectSelection = document.createElement('option');
     projectSelection.textContent = project._name;
     addTask__projects.appendChild(projectSelection);
