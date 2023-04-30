@@ -14,6 +14,7 @@ import {
   renderProjects,
 } from './render.js';
 import { Task } from './task';
+import { setDefaultProjects } from './controller';
 // import { render } from 'sass';
 
 // Rule of thumb: if you only ever need ONE of something (gameBoard, displayController), use a module.
@@ -28,6 +29,7 @@ window.addEventListener('load', initialize());
 
 function initialize() {
   eventListeners();
+  setDefaultProjects();
   renderProjects();
 }
 

@@ -192,6 +192,13 @@ const renderProjects = function () {
   project__list.setAttribute('class', 'project__list');
 
   data.forEach((project) => {
+    if (
+      project._name == 'Inbox' ||
+      project._name == 'Today' ||
+      project._name == 'Upcoming' ||
+      project._name == 'Complete'
+    )
+      return;
     const project__name = document.createElement('li');
     const project__btn = document.createElement('button');
     project__btn.value = project._name;

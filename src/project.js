@@ -55,7 +55,7 @@ class Project {
 let myProject = new Project();
 
 function getId() {
-  return { id: Date.now() };
+  return Date.now();
 }
 
 export { Project, myProject, getId };

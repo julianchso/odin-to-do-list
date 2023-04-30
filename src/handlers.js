@@ -101,6 +101,7 @@ const eventListeners = function () {
     if (target) {
       console.log('submit add task');
       addTask();
+      addTask_form_hide();
     }
   });
 

@@ -38,7 +38,24 @@ const addTask_clearFields = () => {
   });
 };
 
-// add project to local storage
+// create and add inbox, today, upcoming, complete projects to local storage
+const setDefaultProjects = () => {
+  let defaultProjects = [
+    new Project('Inbox'),
+    new Project('Today'),
+    new Project('Upcoming'),
+    new Project('Complete'),
+  ];
+
+  let data = localStorage.getItem('data');
+
+  // TODO: see if this line gets the existing data in local storage and not create new and overwrite.
+  let projects = data ? JSON.parse(data) : defaultProjects;
+
+  localStorage.setItem('data', JSON.stringify(projects));
+};
+
+// create and add custom project to local storage
 const addProjectToStorage = () => {
   let ProjectInput = document.querySelector('.modalProject__name');
   let name = ProjectInput.value;
@@ -61,4 +78,4 @@ const addProjectToStorage = () => {
 
 // "wertwert":[]}
 
-export { addTask, addProjectToStorage };
+export { addTask, addProjectToStorage, setDefaultProjects };
