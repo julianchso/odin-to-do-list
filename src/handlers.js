@@ -13,7 +13,7 @@ import {
 } from './render.js';
 import { Project } from './project.js';
 import { Task } from './task.js';
-import { addTask, addProjectToStorage } from './controller.js';
+import { addTaskToStorage, addProjectToStorage, setDefaultProjects } from './controller';
 
 const eventListeners = function () {
   const tasks = document.querySelector('#tasks');
@@ -99,8 +99,7 @@ const eventListeners = function () {
   document.addEventListener('click', function (e) {
     const target = e.target.closest('.addTask__btn_submit');
     if (target) {
-      console.log('submit add task');
-      addTask();
+      addTaskToStorage();
       addTask_form_hide();
     }
   });

@@ -2,7 +2,8 @@ import { Task } from './task';
 import { Project } from './project';
 import { eventListeners } from './handlers';
 
-const addTask = () => {
+// create and add task to local storage
+const addTaskToStorage = () => {
   const title = document.querySelector('.addTask__title').value;
   const description = document.querySelector('.addTask__desc').value;
   const priority = document.querySelector('.addTask__priority-dropdown').value;
@@ -10,9 +11,21 @@ const addTask = () => {
   const project = document.querySelector('.addTask__projects-dropdown').value;
   const complete = false;
 
-  // let newTask = new Task(title, description, dueDate, priority, project, complete);
-  // console.log(newTask);
-  // return newTask;
+  let newTask = new Task(title, description, dueDate, priority, project, complete);
+  console.log(newTask.project);
+  let projects = JSON.parse(localStorage.getItem('data'));
+  console.log(projects);
+
+  projects.forEach((project) => {
+    if (newTask.project == project._name) {
+      project._tasks.push(newTask);
+      console.log(project._tasks);
+      console.log(project);
+    }
+    localStorage.setItem('data', JSON.stringify(projects));
+  });
+
+  return newTask;
 
   addTask_clearFields();
 };
@@ -50,8 +63,9 @@ const setDefaultProjects = () => {
   let data = localStorage.getItem('data');
 
   // TODO: see if this line gets the existing data in local storage and not create new and overwrite.
+  // TODO: set timeout when creating projects to have unique IDs.
+  // TODO: find new way to create default todos. Currently not creating if data key in local storage already exists.
   let projects = data ? JSON.parse(data) : defaultProjects;
-
   localStorage.setItem('data', JSON.stringify(projects));
 };
 
@@ -78,4 +92,4 @@ const addProjectToStorage = () => {
 
 // "wertwert":[]}
 
-export { addTask, addProjectToStorage, setDefaultProjects };
+export { addTaskToStorage, addProjectToStorage, setDefaultProjects };

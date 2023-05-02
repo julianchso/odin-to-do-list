@@ -110,20 +110,16 @@ const addTaskBtn = function () {
   // dropdown for project list
   const addTask__projects = document.createElement('select');
   addTask__projects.classList.add('addTask__projects-dropdown');
-  const addTask__projects_inbox = document.createElement('option');
-  addTask__projects_inbox.textContent = 'Inbox';
-  addTask__projects.appendChild(addTask__projects_inbox);
 
   let data = localStorage.getItem('data');
   let projects = data ? JSON.parse(data) : [];
 
   projects.forEach((project) => {
+    if (project._name == 'Today' || project._name == 'Upcoming' || project._name == 'Complete')
+      return;
     let projectSelection = document.createElement('option');
     projectSelection.textContent = project._name;
     addTask__projects.appendChild(projectSelection);
-    // document.createElement('option');
-    // addTask__priority_noSelection.textContent = project._name;
-    // addTask__priority_noSelection.setAttribute('value', 'no priority');
   });
 
   addTask__form.appendChild(addTask__projects);
