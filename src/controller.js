@@ -77,6 +77,9 @@ const addProjectToStorage = () => {
   let newProject = new Project(name);
   let projects = data ? JSON.parse(data) : [];
 
+  // TODO: do nothing if project name is not entered. But add error message.
+  if (!ProjectInput.value) return;
+
   projects.push(newProject);
   localStorage.setItem('data', JSON.stringify(projects));
   ProjectInput.value = '';

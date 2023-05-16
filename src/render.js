@@ -186,15 +186,25 @@ const hideModal = function () {
 //   this.classList.add('sidebarBtn-active').bind(this);
 // };
 
-// TODO: how to use "this" to refer to the button being clicked?
-// ask on reddit
 const renderTasks = function (button) {
   let data = JSON.parse(localStorage.getItem('data'));
-  data.forEach((name) => {
-    console.log(data._name);
+
+  const projectName = button.textContent;
+  data.forEach((project) => {
+    if (
+      project._name == 'Inbox' ||
+      project._name == 'Today' ||
+      project._name == 'Upcoming' ||
+      project._name == 'Complete'
+    )
+      return;
+    const taskListCtn = document.querySelector('.taskList');
+    if (project._name == projectName) {
+      // TODO: get task from JSON data
+      data._tasks.forEach((task) => {});
+      console.log(project._name);
+    }
   });
-  console.log(data);
-  // if (button.textContent == )
 };
 
 const renderProjects = function () {
