@@ -9,7 +9,9 @@ import {
   changePriority,
   showModal,
   hideModal,
+  renderTasks,
   renderProjects,
+  renderSidebarBtnActive,
 } from './render.js';
 import { Project } from './project.js';
 import { Task } from './task.js';
@@ -18,6 +20,7 @@ import { addTaskToStorage, addProjectToStorage, setDefaultProjects } from './con
 const eventListeners = function () {
   const tasks = document.querySelector('#tasks');
   const hamburgerMenu = document.querySelector('#hamburger-menu');
+  const sidebar = document.querySelector('#sidebar');
   const sidebarBtns = document.querySelectorAll('.sidebarBtn');
   const modalProject__ctn = document.querySelector('.modalProject__ctn');
 
@@ -42,15 +45,27 @@ const eventListeners = function () {
     }
   });
 
-  // highlight active button
-  sidebarBtns.forEach((sidebarBtn) => {
-    sidebarBtn.addEventListener('click', function () {
-      sidebarBtns.forEach((sidebarBtn) => {
-        sidebarBtn.classList.remove('sidebarBtn-active');
-      });
-      this.classList.add('sidebarBtn-active');
-    });
+  sidebar.addEventListener('click', function (e) {
+    let button = e.target.closest('.sidebarBtn');
+    if (button) {
+      renderTasks(button);
+    }
   });
+
+  // document.querySelectorAll('.sidebarBtn').forEach((sidebarBtn) => {
+  //   sidebarBtn.addEventListener('click', function () {
+  //     renderTasks(sidebarBtn);
+  //   });
+  // });
+
+  // highlight active button
+  // TODO: look up how to bind this eventlistener to the side bar buttons
+  // ask on reddit
+  // sidebarBtns.forEach((sidebarBtn) => {
+  //   sidebarBtn.addEventListener('click', function () {
+  //     renderTasks(sidebarBtn);
+  //   });
+  // });
 
   sidebar__addProject.addEventListener('click', function () {
     showModal();

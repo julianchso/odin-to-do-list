@@ -165,16 +165,37 @@ const hideModal = function () {
   modalProject__ctn.classList.add('hidden');
 };
 
-// TODO
-const switchSidebar = function () {
-  const windowSize700 = window.matchMedia('(min-width: 600px)');
-  if (windowSize700) {
-    sidebar.classList.remove('hidden');
-  } else if (!windowSize700) {
-    sidebar.classList.add('hidden');
-  }
+// TODO: different views when on mobile (mobile-first)
+// const switchSidebar = function () {
+//   const windowSize700 = window.matchMedia('(min-width: 600px)');
+//   if (windowSize700) {
+//     sidebar.classList.remove('hidden');
+//   } else if (!windowSize700) {
+//     sidebar.classList.add('hidden');
+//   }
+// };
+
+// TODO: render active button using "this"
+// const renderSidebarBtnActive = function () {
+//   const sidebarBtns = document.querySelectorAll('.sidebarBtn');
+
+//   sidebarBtns.forEach((sidebarBtn) => {
+//     sidebarBtn.classList.remove('sidebarBtn-active');
+//   });
+//   console.log(`render: ${this}`);
+//   this.classList.add('sidebarBtn-active').bind(this);
+// };
+
+// TODO: how to use "this" to refer to the button being clicked?
+// ask on reddit
+const renderTasks = function (button) {
+  let data = JSON.parse(localStorage.getItem('data'));
+  data.forEach((name) => {
+    console.log(data._name);
+  });
+  console.log(data);
+  // if (button.textContent == )
 };
-// end TODO
 
 const renderProjects = function () {
   let data = JSON.parse(localStorage.getItem('data'));
@@ -222,4 +243,6 @@ export {
   showModal,
   hideModal,
   renderProjects,
+  renderTasks,
+  // renderSidebarBtnActive,
 };
